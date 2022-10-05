@@ -22,7 +22,5 @@ export class PessoaService {
     .pipe(
       retry(2)
     )
-    // return this.http.get<Pessoas[]>(`${API_PATH}/pessoas/`); //trazendo a api do enviroments
-    // return this.http.get(`http://localhost/categoria/`);
   }
 }

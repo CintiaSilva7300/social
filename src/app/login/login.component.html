@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="loginForm" class="form mt-4">
+  <form [formGroup]="loginForm" class="form mt-4" (submit)="login()">
     <div class="form-group">
       <h1 class="text-center">Login</h1>
       <input formControlName="userName" class="form-control" type="text" placeholder="user name">
