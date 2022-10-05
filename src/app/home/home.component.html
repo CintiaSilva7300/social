@@ -1,0 +1,19 @@
+<div class="navBar">
+  <p>Midia Social</p>
+</div>
+
+<div class="container">
+
+  <input type="text" id="filtro" name="filtro" placeholder="pesquisar..." (ngModelChange)="filtrarNome()"
+    [(ngModel)]="termoPesquisa" />
+
+  <img class="imgPesquisa" src="https://cdn-icons-png.flaticon.com/512/3991/3991270.png" alt="pesquisar">
+</div>
+
+<div style="background-color: red; width: 25%;" *ngFor="let pessoa of pessoas">
+  <p>{{pessoa.nome}}</p>
+  <p>{{pessoa.idade}}</p>
+  <p>{{pessoa.email}}</p>
+  <p>{{pessoa.senha}}</p>
+</div>
+<!-- ------------------ -->

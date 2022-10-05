@@ -1,0 +1,26 @@
+{
+  "pessoas": [
+    {
+      "id": 1,
+      "nome": "Cintia",
+      "idade": 24,
+      "email": "CINTIA@GMAIL.COM",
+      "senha": 123456
+    },
+    {
+      "id": 2,
+      "nome": "TESTE1",
+      "idade": 24,
+      "email": "CINTIA@GMAIL.COM",
+      "senha": 123456
+    },
+    {
+      "id": 3,
+      "nome": "TESTE2",
+      "idade": 24,
+      "email": "CINTIA@GMAIL.COM",
+      "senha": 123456
+    }
+
+  ]
+}

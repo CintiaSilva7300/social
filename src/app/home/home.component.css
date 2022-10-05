@@ -1,0 +1,50 @@
+
+
+@media only screen and (min-width: 600px) {
+  .navBar {
+    width: 100%;
+    height: 50px;
+    background-color: bisque;
+  }
+  .container {
+    display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  }
+  .imgPesquisa{
+    height: 35px;
+    width: 35px ;
+    margin-top: -1px;
+    padding: 5px;
+  }
+  .inputBusca {
+    border-radius: 30px;
+    height: 30px;
+  }
+}
+
+
+/*CELULAR  tela no maximo de 600 */
+@media only screen and (max-width: 600px) {
+  .navBar {
+    width: 100%;
+    height: 50px;
+    background-color: bisque;
+  }
+  .container {
+    display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  }
+  .imgPesquisa{
+    height: 35px;
+    width: 35px ;
+    margin-top: -1px;
+    padding: 5px;
+  }
+  .inputBusca {
+    border-radius: 30px;
+    height: 30px;
+  }
+}
+
