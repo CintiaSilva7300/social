@@ -1,6 +1,7 @@
 import { AuthService } from './../core/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 // const API_URL = 'http://localhost:3000/pessoas';
 
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -33,11 +35,11 @@ export class LoginComponent implements OnInit {
     this.authService
     .authenticate(userName, password)
     .subscribe(
-      () => console.log('autenticado'),
+      () => this.router.navigateByUrl(''),
       err => {
         console.log('err');
         this.loginForm.reset();
         alert('Usuario invalido')
-    })
+      })
   }
 }
