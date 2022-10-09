@@ -1,9 +1,8 @@
 import { AuthService } from './../core/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
-// const API_URL = 'http://localhost:3000/pessoas';
+import { PlatformDetectorService } from '../services/platform-detector/platform-detector.service';
 
 @Component({
   selector: 'app-login',
@@ -11,13 +10,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm!: any;
+
+  loginForm: any;
+  @ViewChild('userNameInput') userNameInput!: ElementRef<HTMLInputElement>;
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
-    ) { }
+    private router: Router,
+    private platformDetectorService: PlatformDetectorService ) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -30,16 +31,18 @@ export class LoginComponent implements OnInit {
   login() {
     const userName = this.loginForm.get('userName').value;
     const password = this.loginForm.get('password').value;
-    // console.log('testeeeeee')
 
     this.authService
     .authenticate(userName, password)
     .subscribe(
-      () => this.router.navigateByUrl(''),
-      err => {
-        console.log('err');
-        this.loginForm.reset();
-        alert('Usuario invalido')
-      })
+        () => this.router.navigate(['user', userName]),
+        err => {
+            console.log(err);
+            this.loginForm.reset();
+            this.platformDetectorService.isPlatformBrowser() &&
+                this.userNameInput.nativeElement.focus();
+            alert('Invalid user name or password');
+        }
+    );
   }
 }

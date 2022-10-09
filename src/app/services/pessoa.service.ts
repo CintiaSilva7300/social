@@ -23,4 +23,13 @@ export class PessoaService {
       retry(2)
     )
   }
+
+  authenticate(userName: string, password: string) {
+    return this.httpClient
+      .post(
+        this.url + '/user/login',
+        { userName, password },
+        { observe: 'response'}
+      );
+  }
 }

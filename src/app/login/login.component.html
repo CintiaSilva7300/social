@@ -2,16 +2,16 @@
   <form [formGroup]="loginForm" class="form mt-4" (submit)="login()">
     <div class="form-group">
       <h1 class="text-center">Login</h1>
-      <input formControlName="userName" class="form-control" type="text" placeholder="user name">
+      <input #userNameInput formControlName="userName" class="form-control" type="text" placeholder="user name">
 
-      <small *ngIf="loginForm.get('userName')" class="text-danger d-block mt-2">
+      <small *ngIf="loginForm.get('userName').errors" class="text-danger d-block mt-2">
         User name is required!
       </small>
     </div>
     <div class="form-group">
       <input formControlName="password" class="form-control" type="password" placeholder="password">
 
-      <small *ngIf="loginForm.get('password')" class="text-danger d-block mt-2">
+      <small *ngIf="loginForm.get('password').errors" class="text-danger d-block mt-2">
         Password is required!
       </small>
     </div>

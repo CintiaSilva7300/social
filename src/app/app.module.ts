@@ -17,8 +17,8 @@ import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
-    AppComponent,
     HomeComponent,
+    AppComponent,
     LoginComponent,
   ],
   imports: [
@@ -30,6 +30,7 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     NgbModule,
     CommonModule,
+    RouterModule,
   ],
   exports: [RouterModule],
 

@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
   pessoa: any;
   pessoas!: Pessoas[];
   erro: any;
-  // termoPesquisa: any
 
   constructor(private pessoaService: PessoaService) {
     this.getPessoas();
@@ -36,11 +35,12 @@ export class HomeComponent implements OnInit {
 
   filtrarNome() {
     if (this.termoPesquisa.length > 2) { //filtrar apartir do "nome" pelo segundo digito
-      this.pessoas = this.pessoas.filter((p: any) => p.nome.toLowerCase().includes(this.termoPesquisa.toLowerCase()))
+      this.pessoas = this.pessoas.filter((p: any) => p.userName.toLowerCase().includes(this.termoPesquisa.toLowerCase()))
     }else {
       this.pessoaService.getPessoas().subscribe(
         (pessoas: Pessoas[]) => {
           this.pessoas = pessoas;
+
         })
     }
   }
